@@ -19,7 +19,15 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   #app {
-    padding: 0 4rem;
+    padding: 0 12rem;
+
+    @media(max-width: ${({ theme }) => theme.largeDesktopBreakpoint}) {
+      padding: 0 12rem;
+    }
+
+    @media(min-width: ${({ theme }) => theme.largeDesktopBreakpoint}) {
+      padding: 0 20rem;
+    }
 
     @media(max-width: ${({ theme }) => theme.mobileBreakpoint}) {
       padding: 0;

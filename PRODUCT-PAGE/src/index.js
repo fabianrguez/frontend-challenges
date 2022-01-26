@@ -18,6 +18,7 @@ const theme = {
   black75: 'rgba(0, 0, 0, 0.75)',
   fontFamily: "'Kumbh Sans', sans-serif",
   mobileBreakpoint: '400px',
+  largeDesktopBreakpoint: '1440px',
 };
 
 ReactDOM.render(
