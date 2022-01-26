@@ -1,16 +1,5 @@
 const initialState = {
-  items: [
-    {
-      name: 'Sneakers 1',
-      price: 18,
-      units: 3,
-    },
-    {
-      name: 'Sneakers 2',
-      price: 18,
-      units: 3,
-    },
-  ],
+  items: [],
 };
 
 function shoppingCartReducer(state = initialState, action) {

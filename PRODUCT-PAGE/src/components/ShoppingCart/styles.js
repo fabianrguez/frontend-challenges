@@ -80,6 +80,7 @@ export const StyledCartProductWrapper = styled.div`
 `;
 
 export const StyledCartProductImageWrapper = styled.div`
+  flex: 1;
   height: 4rem;
   border-radius: 6px;
 
@@ -91,10 +92,10 @@ export const StyledCartProductImageWrapper = styled.div`
 `;
 
 export const StyledCartProductDetails = styled.div`
+  flex: 1;
   display: flex;
   flex-direction: column;
   color: ${({ theme }) => theme.darkGrayfishBlue};
-  margin-left: 1.25rem;
 `;
 
 export const StyledCartProductTotalPrice = styled.span`
@@ -102,14 +103,24 @@ export const StyledCartProductTotalPrice = styled.span`
   color: ${({ theme }) => theme.black};
 `;
 
+export const StyledCartProductDeleteButton = styled.button`
+  flex: 1;
+`;
+
 export const StyledCheckoutButton = styled.button`
   background: ${({ theme }) => theme.orange};
   color: ${({ theme }) => theme.white};
   text-transform: capitalize;
   flex: 1;
-  max-height: 60px;
+  max-height: 45px;
+  min-height: 45px;
   width: 100%;
   font-size: 16px;
   font-weight: 700;
   border-radius: 10px;
+  transition: all 0.3s;
+
+  &:hover {
+    transform: scale(1.01);
+  }
 `;

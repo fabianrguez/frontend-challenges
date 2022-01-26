@@ -15,7 +15,7 @@ export const GlobalStyles = createGlobalStyle`
 
   body, #app {
     height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
   }
 
   #app {
@@ -54,4 +54,14 @@ export const StyledOverlay = styled.div`
   background: ${({ theme }) => theme.black};
   opacity: 0.6;
   z-index: 1;
+`;
+
+export const StyledMain = styled.main`
+  display: flex;
+  margin-top: 4rem;
+
+  @media (max-width: ${({ theme }) => theme.mobileBreakpoint}) {
+    margin-top: 0;
+    flex-direction: column;
+  }
 `;

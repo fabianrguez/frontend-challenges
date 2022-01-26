@@ -15,6 +15,7 @@ const theme = {
   lightGrayfishBlue: 'hsl(223, 64%, 98%)',
   white: 'hsl(0, 0%, 100%)',
   black: 'hsl(0, 0%, 0%)',
+  black75: 'rgba(0, 0, 0, 0.75)',
   fontFamily: "'Kumbh Sans', sans-serif",
   mobileBreakpoint: '400px',
 };

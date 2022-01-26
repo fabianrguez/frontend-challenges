@@ -1,19 +1,15 @@
 import { ReactComponent as CartIcon } from 'assets/images/icon-cart.svg';
 import { useShoppingCart } from 'hooks/useShoppingCart';
+import { ShoppingCartProduct } from './ShoppingCartProduct';
 import {
-  StyledShoppingCartWrapper,
-  StyledShoppingCartContainer,
-  StyledShoppingCartHeader,
-  StyledShoppingCartContent,
   StyledCartEmpty,
-  StyledCheckoutButton,
   StyledCartProducts,
-  StyledCartProductWrapper,
-  StyledCartProductImageWrapper,
-  StyledCartProductDetails,
-  StyledCartProductTotalPrice,
+  StyledCheckoutButton,
+  StyledShoppingCartContainer,
+  StyledShoppingCartContent,
+  StyledShoppingCartHeader,
+  StyledShoppingCartWrapper,
 } from './styles';
-import Product1Thumbnail from 'assets/images/image-product-1-thumbnail.jpg';
 
 export const ShoppingCart = () => {
   const { shoppingCart, isCartOpen, toggleCart } = useShoppingCart();
@@ -22,7 +18,7 @@ export const ShoppingCart = () => {
     e.preventDefault();
     if (!e.currentTarget.contains(e.relatedTarget)) {
       if (isCartOpen) {
-        // toggleCart();
+        toggleCart();
       }
     }
   };
@@ -42,21 +38,7 @@ export const ShoppingCart = () => {
           ) : (
             <StyledCartProducts>
               {shoppingCart?.items.map((product) => (
-                <StyledCartProductWrapper>
-                  <StyledCartProductImageWrapper>
-                    <img src={Product1Thumbnail} alt="" />
-                  </StyledCartProductImageWrapper>
-                  <StyledCartProductDetails>
-                    <p>{product.name}</p>
-                    <p>
-                      <span>${product.price}</span> x&nbsp;
-                      <span>
-                        {product.units}{' '}
-                        <StyledCartProductTotalPrice>${product.price * product.units}</StyledCartProductTotalPrice>
-                      </span>
-                    </p>
-                  </StyledCartProductDetails>
-                </StyledCartProductWrapper>
+                <ShoppingCartProduct {...product} />
               ))}
             </StyledCartProducts>
           )}

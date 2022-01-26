@@ -98,12 +98,21 @@ export const StyledExtraWrapper = styled.div`
 
 export const StyledAvatarWrapper = styled.div`
   width: 3rem;
-  height: 100%;
+  height: 3rem;
+  border-radius: 50%;
   margin-left: 1rem;
+  cursor: pointer;
+  border-style: solid;
+  border-color: transparent;
+  transition: all 0.3s;
 
   & img {
     width: 100%;
     height: auto;
+  }
+
+  &:hover {
+    border-color: ${({ theme }) => theme.orange};
   }
 `;
 
