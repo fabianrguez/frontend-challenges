@@ -19,6 +19,7 @@ export const StyledLightboxContent = styled.div`
   flex-direction: column;
   width: 100%;
   padding: 0 12rem;
+  position: relative;
 `;
 
 export const StyledLightboxCloseButton = styled.button`
@@ -45,6 +46,50 @@ export const StyledLightboxImages = styled.div`
 
   &::-webkit-scrollbar {
     display: none;
+  }
+`;
+
+export const StyledLightboxCarousel = styled.div`
+  position: relative;
+`;
+
+export const StyledLightboxButtonPrev = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-2rem, -50%);
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  background: ${({ theme }) => theme.white};
+
+  &:hover {
+    & svg > * {
+      stroke: ${({ theme }) => theme.orange};
+    }
+  }
+`;
+
+export const StyledLightboxButtonNext = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(2rem, -50%);
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  background: ${({ theme }) => theme.white};
+
+  &:hover {
+    & svg > * {
+      stroke: ${({ theme }) => theme.orange};
+    }
   }
 `;
 
