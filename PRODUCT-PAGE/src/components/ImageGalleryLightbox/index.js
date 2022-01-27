@@ -22,13 +22,7 @@ export const ImageGalleryLightBox = ({ activeImage, images, thumbnails, isOpen, 
   const scrollToImage = (id) => {
     if (id) {
       const imageTo = [...imagesRef?.current.children].find((child) => child.getAttribute('data-image') === id);
-
       imagesRef.current.scrollLeft = imageTo.offsetLeft;
-
-      setActive({
-        path: imageTo.src,
-        id,
-      });
     }
   };
 
