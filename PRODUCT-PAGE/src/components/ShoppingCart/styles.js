@@ -124,3 +124,21 @@ export const StyledCheckoutButton = styled.button`
     transform: scale(1.01);
   }
 `;
+
+export const StyledCartBadge = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 70%;
+  left: 60%;
+  background: ${({ theme }) => theme.orange};
+  color: ${({ theme }) => theme.white};
+  height: 0.75rem;
+  width: 1rem;
+  border-radius: 50%;
+  font-size: 10px;
+  opacity: ${({ visible }) => (!visible ? 0 : 1)};
+  visibility: ${({ visible }) => (!visible ? 'hidden' : 'visible')};
+  transition: all 0.3s;
+`;

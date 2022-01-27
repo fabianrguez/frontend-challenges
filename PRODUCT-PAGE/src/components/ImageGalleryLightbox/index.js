@@ -12,7 +12,7 @@ import {
   StyledLightboxImages,
   StyledLightboxThumbnails,
   StyledLightboxThumbnailWrapper,
-  StyledLightboxWrapper
+  StyledLightboxWrapper,
 } from './styles';
 
 export const ImageGalleryLightBox = ({ activeImage, images, thumbnails, isOpen, toggleLightbox }) => {

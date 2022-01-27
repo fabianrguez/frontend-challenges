@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const StyledImageGalleryWrapper = styled.section`
   display: flex;
   flex-direction: column;
+  flex: 1;
 
   @media (max-width: ${({ theme }) => theme.mobileBreakpoint}) {
     display: none;
@@ -48,6 +49,7 @@ export const StyledThumbnails = styled.div`
 export const StyledThumbnailWrapper = styled.a`
   flex: 1;
   height: 6rem;
+  /* width: 6rem; */
   border-radius: 12px;
   cursor: pointer;
   border-style: solid;
@@ -56,7 +58,7 @@ export const StyledThumbnailWrapper = styled.a`
   overflow: hidden;
 
   & img {
-    height: 100%;
+    height: auto;
     width: 100%;
     border-radius: inherit;
     opacity: ${({ isActive }) => (isActive ? 0.2 : 1)};
@@ -74,4 +76,6 @@ export const StyledThumbnailWrapper = styled.a`
   }
 `;
 
-export const StyledImageGalleryContainer = styled.section``;
+export const StyledImageGalleryContainer = styled.section`
+  flex: 1;
+`;

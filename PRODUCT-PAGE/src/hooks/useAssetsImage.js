@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { loadImage } from 'utils';
 
 export function useAssetsImage(images = {}) {
   const [assetsImages, setAssetsImages] = useState({});
@@ -6,7 +7,7 @@ export function useAssetsImage(images = {}) {
   useEffect(() => {
     const assetsImages = Object.entries(images)?.reduce((acc, [key, data]) => {
       const images = data.map((image) => ({
-        path: require(`assets/images/${image}`),
+        path: loadImage(image),
         id: image.replace('-thumbnail', '').replace('.jpg', ''),
       }));
       return { ...acc, [key]: images };

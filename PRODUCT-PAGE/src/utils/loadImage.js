@@ -1,0 +1,1 @@
+export const loadImage = (image) => require(`assets/images/${image}`);

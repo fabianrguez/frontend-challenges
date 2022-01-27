@@ -28,7 +28,7 @@ export const StyledNavigation = styled.div`
   align-items: center;
   transition: all 0.3s;
 
-  @media (max-width: ${({ theme }) => theme.mobileBreakpoint}) {
+  @media (max-width: ${({ theme }) => theme.tabletBreakpoint}) {
     flex-direction: column;
     z-index: 2;
     position: fixed;
@@ -38,7 +38,7 @@ export const StyledNavigation = styled.div`
     left: 0;
     background: ${({ theme }) => theme.white};
     width: 50%;
-    padding: 1rem;
+    padding: 1.75rem;
     transform: translateX(${({ isOpen }) => (isOpen ? '0' : '-200%')});
   }
 `;
@@ -50,7 +50,8 @@ export const StyledNav = styled.nav`
   gap: 1.25rem;
   margin: 0 2rem;
 
-  @media (max-width: ${({ theme }) => theme.mobileBreakpoint}) {
+  @media (max-width: ${({ theme }) => theme.tabletBreakpoint}) {
+    width: 100%;
     margin-top: 2rem;
     flex-direction: column;
     align-items: flex-start;
@@ -84,7 +85,7 @@ export const StyledNavItem = styled.a`
     }
   }
 
-  @media (max-width: ${({ theme }) => theme.mobileBreakpoint}) {
+  @media (max-width: ${({ theme }) => theme.tabletBreakpoint}) {
     font-weight: 700;
   }
 `;
@@ -120,7 +121,7 @@ export const StyledMobileToggler = styled.button`
   display: none;
   margin-right: 0.75rem;
 
-  @media (max-width: ${({ theme }) => theme.mobileBreakpoint}) {
+  @media (max-width: ${({ theme }) => theme.tabletBreakpoint}) {
     display: block;
   }
 `;

@@ -17,5 +17,5 @@ export function useScreenSize() {
     return window.removeEventListener('resize', handleResize);
   }, []);
 
-  return { size, isMobile: size.width <= 400 };
+  return { size, isMobile: size.width <= 1080 };
 }

@@ -17,7 +17,9 @@ const theme = {
   black: 'hsl(0, 0%, 0%)',
   black75: 'rgba(0, 0, 0, 0.75)',
   fontFamily: "'Kumbh Sans', sans-serif",
-  mobileBreakpoint: '400px',
+  mobileBreakpoint: '500px',
+  tabletBreakpoint: '1080px',
+  mediumDesktopBreakpoint: '1200px',
   largeDesktopBreakpoint: '1440px',
 };
 

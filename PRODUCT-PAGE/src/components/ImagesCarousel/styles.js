@@ -21,10 +21,10 @@ export const StyledCarouselItem = styled.div`
   scroll-snap-stop: always;
   height: 22rem;
   width: 100%;
-  
+  overflow: hidden;
+
   & img {
-    height: 26rem;
-    /* height: 100%; */
-    width: auto;
+    height: auto;
+    width: 100%;
   }
 `;

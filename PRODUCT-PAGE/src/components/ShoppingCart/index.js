@@ -2,6 +2,7 @@ import { ReactComponent as CartIcon } from 'assets/images/icon-cart.svg';
 import { useShoppingCart } from 'hooks/useShoppingCart';
 import { ShoppingCartProduct } from './ShoppingCartProduct';
 import {
+  StyledCartBadge,
   StyledCartEmpty,
   StyledCartProducts,
   StyledCheckoutButton,
@@ -28,6 +29,7 @@ export const ShoppingCart = () => {
       <button aria-controls="shopping-cart-content" onClick={toggleCart}>
         <CartIcon />
       </button>
+      <StyledCartBadge visible={shoppingCart.totalProducts !== 0}>{shoppingCart.totalProducts}</StyledCartBadge>
       <StyledShoppingCartContainer id="shopping-cart-content" tabIndex="0" isOpen={isCartOpen}>
         <StyledShoppingCartHeader>
           <h2>Your cart</h2>
@@ -37,8 +39,8 @@ export const ShoppingCart = () => {
             <StyledCartEmpty>Your cart is empty</StyledCartEmpty>
           ) : (
             <StyledCartProducts>
-              {shoppingCart?.items.map((product) => (
-                <ShoppingCartProduct {...product} />
+              {shoppingCart?.items.map((product, index) => (
+                <ShoppingCartProduct key={`${product.id}-${index}`} {...product} />
               ))}
             </StyledCartProducts>
           )}

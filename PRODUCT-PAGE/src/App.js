@@ -1,7 +1,7 @@
 import { Header } from 'components/Header';
-import { ImageGallery } from 'components/ImageGallery';
 import { StyledMain, StyledOverlay } from 'GlobalStyles';
 import { useScreenSize } from 'hooks/useScreenSize';
+import { ProductPage } from 'pages/ProductPage';
 import { useEffect, useState } from 'react';
 
 export const App = () => {
@@ -26,7 +26,7 @@ export const App = () => {
       {isMobile && showOverlay && <StyledOverlay />}
       <Header onMenuOpen={handleMenuOpen} />
       <StyledMain>
-        <ImageGallery images={product?.images} />
+        <ProductPage product={product} />
       </StyledMain>
     </>
   );
