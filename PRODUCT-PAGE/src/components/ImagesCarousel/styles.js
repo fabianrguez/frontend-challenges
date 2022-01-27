@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledCarouselWrapper = styled.section`
+  position: relative;
   display: none;
   flex-direction: row;
   align-items: center;
@@ -26,5 +27,32 @@ export const StyledCarouselItem = styled.div`
   & img {
     height: auto;
     width: 100%;
+  }
+`;
+
+export const StyledCarouselNavigation = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  padding: 0 1rem;
+  transform: translateY(-50%);
+`;
+
+export const StyledNavigationButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background: ${({ theme }) => theme.white};
+
+  &:hover {
+    & svg > * {
+      stroke: ${({ theme }) => theme.orange};
+    }
   }
 `;
