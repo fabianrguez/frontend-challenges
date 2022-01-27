@@ -62,6 +62,7 @@ export const StyledOverlay = styled.div`
   background: ${({ theme }) => theme.black};
   opacity: 0.6;
   z-index: 1;
+  overflow: hidden;
 `;
 
 export const StyledMain = styled.main`

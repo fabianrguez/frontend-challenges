@@ -1,22 +1,22 @@
-import {
-  StyledLogoWrapper,
-  StyledHeader,
-  StyledNav,
-  StyledNavItem,
-  StyledExtraWrapper,
-  StyledAvatarWrapper,
-  StyledMobileToggler,
-  StyledNavigation,
-} from './styles';
-import { ReactComponent as Logo } from 'assets/images/logo.svg';
-import { ReactComponent as MenuIcon } from 'assets/images/icon-menu.svg';
 import { ReactComponent as CloseIcon } from 'assets/images/icon-close.svg';
+import { ReactComponent as MenuIcon } from 'assets/images/icon-menu.svg';
 import AvatarImage from 'assets/images/image-avatar.png';
-import { useScreenSize } from 'hooks/useScreenSize';
-import { useState } from 'react';
+import { ReactComponent as Logo } from 'assets/images/logo.svg';
 import { ShoppingCart } from 'components/ShoppingCart';
+import { useScreenSize } from 'hooks/useScreenSize';
+import { useState, forwardRef, useImperativeHandle } from 'react';
+import {
+  StyledAvatarWrapper,
+  StyledExtraWrapper,
+  StyledHeader,
+  StyledLogoWrapper,
+  StyledMobileToggler,
+  StyledNav,
+  StyledNavigation,
+  StyledNavItem,
+} from './styles';
 
-export const Header = ({ onMenuOpen = () => {} }) => {
+export const Header = forwardRef(({ onMenuOpen = () => {} }, ref) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isMobile } = useScreenSize();
 
@@ -25,9 +25,15 @@ export const Header = ({ onMenuOpen = () => {} }) => {
       setIsMenuOpen(!isMenuOpen);
       onMenuOpen({ isOpen: isMenuOpen });
     } else {
-      setIsMenuOpen(false);
+      closeMenu();
     }
   };
+
+  const closeMenu = () => setIsMenuOpen(false);
+
+  useImperativeHandle(ref, () => ({
+    closeMenu,
+  }));
 
   return (
     <StyledHeader>
@@ -57,4 +63,4 @@ export const Header = ({ onMenuOpen = () => {} }) => {
       </StyledExtraWrapper>
     </StyledHeader>
   );
-};
+});
