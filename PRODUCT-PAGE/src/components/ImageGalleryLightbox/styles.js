@@ -27,6 +27,10 @@ export const StyledLightboxCloseButton = styled.button`
   align-items: center;
   margin-left: auto;
 
+  & svg > * {
+    fill: ${({ theme }) => theme.white};
+  }
+
   &:hover {
     & svg > * {
       fill: ${({ theme }) => theme.orange};
