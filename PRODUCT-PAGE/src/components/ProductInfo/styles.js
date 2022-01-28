@@ -103,7 +103,7 @@ export const StyledProductInfoAddToCartButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.35px;
+  gap: 0.35rem;
   padding: 1rem;
   background: ${({ theme }) => theme.orange};
   color: ${({ theme }) => theme.white};
