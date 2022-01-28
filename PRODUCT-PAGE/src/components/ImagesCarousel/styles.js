@@ -1,17 +1,22 @@
 import styled from 'styled-components';
 
-export const StyledCarouselWrapper = styled.section`
-  position: relative;
+export const StyledCarouselWrapper = styled.div`
   display: none;
+  position: relative;
+
+  @media (max-width: ${({ theme }) => theme.mobileBreakpoint}) {
+    display: flex;
+  }
+`;
+
+export const StyledCarouselContent = styled.section`
+  display: flex;
+  position: relative;
   flex-direction: row;
   align-items: center;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   overflow-x: scroll;
-
-  @media (max-width: ${({ theme }) => theme.mobileBreakpoint}) {
-    display: flex;
-  }
 `;
 
 export const StyledCarouselItem = styled.div`
@@ -49,6 +54,7 @@ export const StyledNavigationButton = styled.button`
   width: 3rem;
   border-radius: 50%;
   background: ${({ theme }) => theme.white};
+  outline: none;
 
   &:hover {
     & svg > * {

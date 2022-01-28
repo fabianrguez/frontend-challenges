@@ -58,7 +58,10 @@ export const ImageGalleryLightBox = ({ activeImage, images, thumbnails, isOpen, 
   };
 
   useEffect(() => {
-    activeImage && scrollToImage(activeImage.id);
+    if (activeImage) {
+      scrollToImage(activeImage.id);
+      setActive(activeImage);
+    }
   }, [activeImage, isOpen]);
 
   return (

@@ -42,7 +42,7 @@ export const ImageGallery = ({ images }) => {
           toggleLightbox={toggleLightbox}
         />
       </StyledImageGalleryWrapper>
-      <ImagesCarousel images={bigImages} />
+      <ImagesCarousel images={bigImages} initialActiveImage={activeImage} />
     </StyledImageGalleryContainer>
   );
 };
