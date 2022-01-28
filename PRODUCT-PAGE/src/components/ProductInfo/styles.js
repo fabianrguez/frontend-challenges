@@ -102,14 +102,15 @@ export const StyledProductInfoAddToCartButton = styled.button`
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 0.35px;
   padding: 1rem;
   background: ${({ theme }) => theme.orange};
   color: ${({ theme }) => theme.white};
   border-radius: 8px;
   font-weight: 700;
   font-size: 16px;
-  transition: all 0.3;
+  transition: all 0.3s;
 
   &:hover {
     opacity: 0.5;
