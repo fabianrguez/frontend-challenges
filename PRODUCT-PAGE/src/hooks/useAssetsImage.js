@@ -6,9 +6,10 @@ export function useAssetsImage(images = {}) {
 
   useEffect(() => {
     const assetsImages = Object.entries(images)?.reduce((acc, [key, data]) => {
-      const images = data.map((image) => ({
+      const images = data.map((image, index) => ({
         path: loadImage(image),
         id: image.replace('-thumbnail', '').replace('.jpg', ''),
+        index: index + 1,
       }));
       return { ...acc, [key]: images };
     }, {});

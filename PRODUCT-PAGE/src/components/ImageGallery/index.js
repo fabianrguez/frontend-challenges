@@ -42,7 +42,7 @@ export const ImageGallery = ({ images }) => {
           toggleLightbox={toggleLightbox}
         />
       </StyledImageGalleryWrapper>
-      <ImagesCarousel images={bigImages} initialActiveImage={activeImage} />
+      <ImagesCarousel images={bigImages} initialActiveImage={activeImage} hideInDesktop itemHeight="22rem" />
     </StyledImageGalleryContainer>
   );
 };

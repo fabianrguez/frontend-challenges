@@ -1,15 +1,9 @@
 import { ReactComponent as CloseIcon } from 'assets/images/icon-close.svg';
-import { ReactComponent as NextIcon } from 'assets/images/icon-next.svg';
-import { ReactComponent as PrevIcon } from 'assets/images/icon-previous.svg';
+import { ImagesCarousel } from 'components/ImagesCarousel';
 import { useEffect, useRef, useState } from 'react';
 import {
-  StyledLightboxButtonNext,
-  StyledLightboxButtonPrev,
-  StyledLightboxCarousel,
   StyledLightboxCloseButton,
   StyledLightboxContent,
-  StyledLightboxImage,
-  StyledLightboxImages,
   StyledLightboxThumbnails,
   StyledLightboxThumbnailWrapper,
   StyledLightboxWrapper,
@@ -17,12 +11,14 @@ import {
 
 export const ImageGalleryLightBox = ({ activeImage, images, thumbnails, isOpen, toggleLightbox }) => {
   const [active, setActive] = useState(activeImage);
-  const imagesRef = useRef();
+  const carouselRef = useRef();
 
   const scrollToImage = (id) => {
     if (id) {
-      const imageTo = [...imagesRef?.current.children].find((child) => child.getAttribute('data-image') === id);
-      imagesRef.current.scrollLeft = imageTo.offsetLeft;
+      const imageTo = [...carouselRef.current.items].find(
+        (child) => child.firstElementChild.getAttribute('data-image') === id
+      );
+      carouselRef.current.scrollToItem(imageTo);
     }
   };
 
@@ -38,23 +34,9 @@ export const ImageGalleryLightBox = ({ activeImage, images, thumbnails, isOpen, 
     toggleLightbox();
   };
 
-  const handleScroll = (e) => {
-    const { scrollWidth, scrollLeft, clientWidth } = e.target;
-    const activeThumbnail = Math.floor(((100 / scrollWidth) * (scrollLeft + clientWidth) * images.length) / 100);
-    setActive(images[activeThumbnail - 1]);
-  };
-
-  const goNext = () => {
-    const activeImageIndex = images?.findIndex((image) => image.id === active.id);
-    if (activeImageIndex < images?.length - 1) {
-      scrollToImage(images[activeImageIndex + 1].id);
-    }
-  };
-  const goPrev = () => {
-    const activeImageIndex = images?.findIndex((image) => image.id === active.id);
-    if (activeImageIndex > 0) {
-      scrollToImage(images[activeImageIndex - 1].id);
-    }
+  const handleOnScrollToItem = (id) => {
+    const _activeImage = images?.find((image) => image.id === id);
+    setActive({ ..._activeImage });
   };
 
   useEffect(() => {
@@ -70,19 +52,15 @@ export const ImageGalleryLightBox = ({ activeImage, images, thumbnails, isOpen, 
         <StyledLightboxCloseButton onClick={closeLightbox}>
           <CloseIcon />
         </StyledLightboxCloseButton>
-        <StyledLightboxCarousel>
-          <StyledLightboxImages ref={imagesRef} onScrollCapture={handleScroll}>
-            {images?.map((image) => (
-              <StyledLightboxImage key={image.id} src={image.path} alt={image.id} data-image={image.id} />
-            ))}
-          </StyledLightboxImages>
-          <StyledLightboxButtonPrev onClick={goPrev}>
-            <PrevIcon />
-          </StyledLightboxButtonPrev>
-          <StyledLightboxButtonNext onClick={goNext}>
-            <NextIcon />
-          </StyledLightboxButtonNext>
-        </StyledLightboxCarousel>
+        <ImagesCarousel
+          ref={carouselRef}
+          images={images}
+          initialActiveImage={activeImage}
+          containerHeight="32rem"
+          containerWidth="32rem"
+          carouselBorderRadius="12px"
+          onScrollToItem={handleOnScrollToItem}
+        />
         <StyledLightboxThumbnails>
           {thumbnails?.map((thumbnail) => (
             <StyledLightboxThumbnailWrapper

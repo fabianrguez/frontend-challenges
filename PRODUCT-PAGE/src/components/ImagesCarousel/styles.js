@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
 export const StyledCarouselWrapper = styled.div`
-  display: none;
+  display: ${({ hideInDesktop }) => (hideInDesktop ? 'none' : 'flex')};
+  height: ${({ containerHeight }) => containerHeight};
+  width: ${({ containerWidth }) => containerWidth};
   position: relative;
 
   @media (max-width: ${({ theme }) => theme.mobileBreakpoint}) {
@@ -17,6 +19,11 @@ export const StyledCarouselContent = styled.section`
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   overflow-x: scroll;
+  border-radius: ${({ borderRadius }) => borderRadius};
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const StyledCarouselItem = styled.div`
@@ -25,7 +32,7 @@ export const StyledCarouselItem = styled.div`
   flex-shrink: 0;
   scroll-snap-align: center;
   scroll-snap-stop: always;
-  height: 22rem;
+  height: ${({ height }) => height};
   width: 100%;
   overflow: hidden;
 
@@ -55,6 +62,12 @@ export const StyledNavigationButton = styled.button`
   border-radius: 50%;
   background: ${({ theme }) => theme.white};
   outline: none;
+  transition: all 0.2s;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 
   &:hover {
     & svg > * {
