@@ -39,6 +39,15 @@ export const ImageGalleryLightBox = ({ activeImage, images, thumbnails, isOpen, 
     setActive({ ..._activeImage });
   };
 
+  const handleClickOutsideLightboxContent = (e) => {
+    e.preventDefault();
+    const { target } = e;
+    const isClickedOutsideLightbox = target.getAttribute('data-is-lightbox-content');
+    if (isClickedOutsideLightbox) {
+      toggleLightbox();
+    }
+  };
+
   useEffect(() => {
     if (activeImage) {
       scrollToImage(activeImage.id);
@@ -47,8 +56,12 @@ export const ImageGalleryLightBox = ({ activeImage, images, thumbnails, isOpen, 
   }, [activeImage, isOpen]);
 
   return (
-    <StyledLightboxWrapper isOpen={isOpen}>
-      <StyledLightboxContent>
+    <StyledLightboxWrapper
+      isOpen={isOpen}
+      data-is-lightbox-content="true"
+      onClick={handleClickOutsideLightboxContent}
+    >
+      <StyledLightboxContent data-is-lightbox-content="true">
         <StyledLightboxCloseButton onClick={closeLightbox}>
           <CloseIcon />
         </StyledLightboxCloseButton>

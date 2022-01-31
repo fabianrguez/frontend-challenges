@@ -76,8 +76,6 @@ export const ImagesCarousel = forwardRef(
       // eslint-disable-next-line
     }, [initialActiveImage, carouselRef]);
 
-    console.log({ activeImage });
-
     return (
       <StyledCarouselWrapper
         hideInDesktop={hideInDesktop}
