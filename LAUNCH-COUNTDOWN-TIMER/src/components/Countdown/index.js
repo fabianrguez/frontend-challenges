@@ -3,7 +3,7 @@ import { useCountdown } from 'hooks';
 import { StyledCountdownWrapper } from './styles';
 
 export const Countdown = () => {
-  const { timeRemain } = useCountdown(new Date('February 2, 2022 13:00:00'));
+  const { timeRemain } = useCountdown(new Date('February 25, 2022 16:00:00'));
 
   return (
     <StyledCountdownWrapper>

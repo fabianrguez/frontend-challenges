@@ -16,7 +16,7 @@ export const StyledTimerWrapper = styled.div`
     content: '';
     width: 10px;
     height: 10px;
-    background-color: ${({ theme }) => theme.colors.neutral.veryDarkBlue};
+    background: ${({ theme }) => theme.colors.neutral.veryDarkBlueDarker};
     border-radius: 50%;
     top: 36%;
     z-index: 3;
@@ -29,6 +29,15 @@ export const StyledTimerWrapper = styled.div`
   &::after {
     right: -5px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    width: 5rem;
+
+    &::before,
+    &::after {
+      top: 33%;
+    }
+  }
 `;
 
 export const StyledTimerTime = styled.span`
@@ -38,6 +47,7 @@ export const StyledTimerTime = styled.span`
   font-size: 4rem;
   position: relative;
   min-width: 100%;
+  overflow: hidden;
 
   &::before,
   &::after {
@@ -54,6 +64,7 @@ export const StyledTimerTime = styled.span`
     top: 0;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
+    transform-origin: bottom;
   }
 
   &::after {
@@ -63,6 +74,10 @@ export const StyledTimerTime = styled.span`
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
     box-shadow: 0px 7px 0 0 #111111;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 2.5rem;
   }
 `;
 
